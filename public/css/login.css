@@ -1,0 +1,30 @@
+
+
+
+
+
+@media(max-width:576px){
+    .boxLogin{
+        margin-top: 136px;
+        margin-bottom: 11px;
+    }
+
+    .campoLogin{
+        background-color: #eff2f7;
+        font-family: VeneerClean-soft, Arial, sans-serif;
+        color: #102156;
+    }
+
+    .lettersLogin{
+        font-family: VeneerClean-soft, Arial, sans-serif;
+        color: #102156;
+    }
+
+    .btnLogin{
+        background-color: #dd5921;
+        border-color: transparent;
+        color: white;
+    }
+    
+
+}

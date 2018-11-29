@@ -1,0 +1,51 @@
+/* ///////////////////////////////////////////////PÁGINA CONTATO///////////////////////////////////////////////////////////// */
+  /* .hamb-button{
+    display: none;
+  }
+
+  .menuHamb{
+    display: none;
+  } */
+
+  .userBox{
+    color: #102156;
+    background-color: #f1f5f8;
+    text-align: center;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    margin-top: 130px;
+  }
+
+  .contactLabel{
+    margin-top: 25px;
+  }
+
+  .fieldLabel{
+    text-align: center;
+    border-right-width: 30px;
+    border-left-width: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  
+
+@media(max-width:576px){
+  .userBox{
+      margin-top: 221px;
+  }
+
+  .fieldLabel{
+    padding: 0px;
+    border-right-width: 15px;
+    border-left-width: 15px;
+      
+  }
+}
+
+@media(min-width:561px){
+  .userBox{
+    margin-top: 162px;
+  }
+}
