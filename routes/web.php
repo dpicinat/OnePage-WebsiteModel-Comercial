@@ -54,8 +54,19 @@ Route::middleware(['auth'])->group (Function() {
         Route::delete('/customer/delete/{id?}','CustomerController@delete');
         // Rotas do CRUD de Contatos
         Route::get('/contato', 'rotasController@contato');
-        Route::get('/contacts/list','contatoController@directory');
+        Route::get('/contacts/{id?}','contatoController@directory');
+        Route::get('/contact/new','contatoController@new');
+        Route::put('/contact/create','contatoController@create');
+        Route::get('/contact/read/{id?}','contatoController@read');
+        Route::get('/contact/edit/{id?}','contatoController@edit');
+        Route::patch('/contact/update/{id?}','contatoController@update');
+        Route::get('/contact/predelete/{id?}','contatoController@preDelete');
+        Route::delete('/contact/delete/{id?}','contatoController@delete');
 
+        //new
+        Route::get('contacts', 'ContactController@inicio');
+        Route::get('contacts/{id}', 'ContactController@verContato');
+        Route::resource('contacts', 'ContactController');
 
         // Rotas do CRUD de Categorias de Produtos
         

@@ -146,7 +146,7 @@
                                     Contatos
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item font-weight-bold" href="{{ url('/') }}/contacts/list">Exibir Contatos</a>
+                                        <a class="dropdown-item font-weight-bold" href="{{ url('/') }}/contacts">Exibir Contatos</a>
                                     </div>
                                 </li>
                             @endif

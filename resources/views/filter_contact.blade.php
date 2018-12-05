@@ -32,6 +32,7 @@
                     <th>Cep</th>
                     <th>Mensagem</th>
                     <th>Aceita Novidades</th>
+                    <th>User id</th>
                     <th>Exibir</th>
                     <th>Editar</th>
                     <th>Excluir</th>
@@ -41,7 +42,7 @@
             <tbody id="myTable">
                 @foreach($contacts as $contact )
                     <tr>    
-                        <td>{{ $contact->id_contacts }}</td>
+                        <td>{{ $contact->id }}</td>
                         <td>{{ $contact->nome }}</td>
                         <td>{{ $contact->email }}</td>
                         <td>{{ $contact->telefone }}</td>
@@ -53,7 +54,7 @@
                         <td>{{ $contact->user_id }}</td>
                         <td><a href="{{ url('/') }}/contact/read/{{ $contact->id }}">Exibir</a></td>
                         <td><a href="{{ url('/') }}/contact/edit/{{ $contact->id }}">Editar</a></td>
-                        <td><a href="{{ url('/') }}/contact/predelete/{{ $user->id }}">Deletar</a></td>
+                        <td><a href="{{ url('/') }}/contact/predelete/{{ $contact->id }}">Deletar</a></td>
                     </tr>
                 @endforeach                
             </tbody>

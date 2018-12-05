@@ -14,7 +14,7 @@
 @endif
 <div class="row">
 
-    <form class="form-group col-12" id="form" name="show_contact" method="POST" action="{{$action}}" enctype="multipart/form-data">
+    <form class="form-group col-12" id="form" name="form_contact" method="POST" action="{{$action}}" enctype="multipart/form-data">
         {{csrf_field()}}
         {{method_field($metodo)}}
         <div class="form-group  {{ $msgclass }}" role="alert">
@@ -23,11 +23,11 @@
         <div class="row">
             <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-12">
                 <label for="id">ID do Contato</label>
-                <input type="number" class="form-control disabled" id="id" name="id" min="0" step="1" value="{{ $contact->id }}" placeholder="ID" readonly>
+                <input type="number" class="form-control disabled" id="id" name="id" min="0" step="1" value="{{ $contact->id}}" placeholder="ID" readonly>
             </div>
             <div class="form-group col-lg-10 col-md-10 col-sm-10 col-xs-12">
                 <label for="name">Nome do Contato</label>
-                <input type="text" class="form-control" name="nome" id="name" value="{{ $contact->name }}" placeholder="Insira Nome do Contato" />
+                <input type="text" class="form-control" name="nome" id="name" value="{{ $contact->nome }}" placeholder="Insira Nome do Contato" />
             </div>
         </div>
         <div class="row">
@@ -78,9 +78,31 @@
             </div>
             <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <label for="password_confirm">Confirmação de Senha</label>
-                <input type="password" class="form-control" id="exampleTextarea" name="mensagem" value="{{ $user->password_confirm }}" placeholder="Redigite sua senha" />
+                <input type="password" class="form-control" id="password_confirm" name="mensagem" value="{{ $user->password_confirm }}" placeholder="Redigite sua senha" />
             </div>
         </div>
+
+        <div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label for="remember_token">Lembrete de Senha</label>
+                <input type="text" class="form-control" id="remember_token" name="remember_token" value="{{ $user->remember_token }}" placeholder="Insira um lembrete de senha" />
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <label for="role_id">Funções de Usuário</label>
+                <select class="form-control" name="role_id" id="role_id">
+                    @foreach ($user->roles as $role) 
+                        <option value="{{ $role->id }}" 
+                            @if( $role->id == $user->role_id )
+                            {{"selected"}}
+                            @endif
+                            >{{ $role->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div> --}}
+
+        </div>
+
         <div class="row">
             <div class="form-group col-12">    
             @if (count($errors) > 0 ) 
@@ -88,52 +110,19 @@
                     <ul> 
                         @foreach($errors->all() as  $error)
                         <li>{{ $error }}</li>
-                        @endforeach 
+                        @endforeach
                     </ul>
                 </div>
                 @endif
             </div>    
-        </div> --}}
+        </div>
         <div class="row"> 
             <div class="form-group col-12 ">
                 <button type="submit" name="submit" class="btn btn-primary">{{ $msgbotao }}</button>	
             </div>
         </div>
 
-        <h3>Informações do Contato</h3>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                    <th>Data Nascimento</th>
-                    <th>Cidade</th>
-                    <th>Cep</th>
-                    <th>Mensagem</th>
-                    <th>User id</th>
-                    <th>Exibir</th>
-                    <th>Editar</th>
-                </tr>
-            </thead>
-
-            <tbody id="myTable">
-                {{-- @foreach($contacts as $contact) --}}
-                    <tr>
-                        <td>{{ $contact->email }}</td>
-                        <td>{{ $contact->telefone }}</td>
-                        <td>{{ $contact->data_nascimento }}</td>
-                        <td>{{ $contact->cidade }}</td>
-                        <td>{{ $contact->cep }}</td>
-                        <td>{{ $contact->mensagem }}</td>
-                        <td>{{ $contact->user_id }}</td>
-                        <td><a href="{{ url('/') }}/contact/read/{{ $contact->id }}">Exibir</a></td>
-                        <td><a href="{{ url('/') }}/contact/edit/{{ $contact->id }}">Editar</a></td>
-                    </tr>
-                {{-- @endforeach                 --}}
-            </tbody>
-        </table>
-        <p>Criado em 22/11/2018.</p>
-
+        <p>Criado em 19/08/2018.</p>
     </form>
 </div>
 </div>
